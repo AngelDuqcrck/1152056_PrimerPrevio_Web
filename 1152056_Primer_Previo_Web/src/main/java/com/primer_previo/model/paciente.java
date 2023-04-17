@@ -32,6 +32,7 @@ public class paciente {
 	
 	@Transient
 	private float imc;
+	private String estado;
 
 	public paciente(String documento, String nombre, String apellido, String email, String genero, Date fechanacimiento,
 			String telefono, String direccion, float peso, float estatura) {
@@ -50,6 +51,15 @@ public class paciente {
 	
 	public float getImc() {
 	    return peso / (estatura / 100.0f * estatura / 100.0f);
+	}
+	
+	
+	public String getEstado() {
+		if(imc <18.5f) {
+			return "Bajo Peso";
+		} else if (imc >= 18.5f && imc<=24.9f) {
+			return "Normal";
+		}else return "Sobrepeso";
 	}
 
 }
